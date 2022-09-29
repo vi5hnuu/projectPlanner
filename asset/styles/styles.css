@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+}
+.backdrop:enabled {
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  font-size: 3.5rem;
+  background-color: #b6e388;
+  padding: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #fcffb2;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+.btn--addProject {
+  background-color: #d9f8c4;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.btn--addProject:active,
+.btn--addProject:hover {
+  background-color: rgb(198, 246, 159);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  height: 27rem;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.empty {
+  font-size: 3.5rem;
+  margin: auto;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 5px;
+  gap: 1rem;
+  height: 12.5rem;
+  transition: all 1s;
+}
+.project:hover {
+  transform: scale(1.01);
+}
+.card--activeProjects .project {
+  background-color: #dcf5c7;
+}
+.card--finishedProjects .project {
+  background-color: #c3f39c;
+}
+.card--pendingProjects .project {
+  background-color: #f6b4b4;
+}
+.project h3 {
+  font-size: 2.5rem;
+  color: #9cb4cc;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+.project p {
+  font-size: 1.5rem;
+  /* line-height: 2rem; */
+  flex-grow: 1;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  overflow: hidden;
+}
+.project .actions {
+  display: flex;
+  gap: 2.5rem;
+}
+.btn {
+  outline: none;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 5px;
+  transition: all 1s;
+}
+.btn:active,
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn--moreInfo {
+  background: none;
+  border: 2px solid #808080;
+}
+
+.btn--finish {
+  background-color: #82ad5f;
+}
+.btn--finish:active,
+.btn--finish:hover {
+  background-color: #81eb2b;
+}
+.btn--activate {
+  background-color: #efb363;
+}
+.btn--activate:active,
+.btn--activate:hover {
+  background-color: #f3a540;
+}
+h2 {
+  padding: 2rem 2.5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.card--activeProjects h2 {
+  background-color: #c7f2a4;
+  color: #99c079;
+}
+
+.card--finishedProjects h2 {
+  background-color: #6eec08;
+  color: #0b6924;
+}
+.card--pendingProjects h2 {
+  background-color: #eb0606;
+  color: #5e0606;
+}
+
+/* modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 80rem;
+  height: 50rem;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #76ba99;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.info-block input,
+textarea {
+  border: 2px solid #76ba99;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2.5rem;
+}
+#description {
+  resize: none;
+}
+.info-block input:focus,
+textarea:focus {
+  border: 2px solid #0df230;
+}
+.info-block label {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.choice {
+  display: flex;
+  width: 20rem;
+  justify-content: space-between;
+}
+
+.btn-submit {
+  background-color: #e4f5ed;
+  align-self: center;
+}
+.btn-submit:active,
+.btn-submit:hover {
+  background-color: #bcf6db;
+}
+
+/* Media quuery */
+@media (max-width: 960px) {
+  .card {
+    width: 90%;
+  }
+}
+/*  */
+.hidden {
+  display: none;
+}

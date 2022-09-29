@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./asset/js/script.js" defer></script>
+    <link rel="stylesheet" href="./asset/styles/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="backdrop hidden"></div>
+    <header class="header">
+        <p>Project Planner</p>
+        <button class="btn btn--addProject">Add Project</button>
+    </header>
+    <main class="main">
+        <div class="card card--activeProjects">
+            <h2>Active Projects</h2>
+            <div class="projects">
+                <div class="empty">No Projects to show.</div>
+                <!-- <div class="project">
+                    <h3>Finish the course</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore iste recusandae odio tempora
+                        qui sunt libero, aliquam culpa necessitatibus soluta voluptate repellat placeat neque, quis,
+                        perferendis consequuntur natus fugit quaerat.Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Inventore iste recusandae odio tempora
+                        qui sunt libero, aliquam culpa necessitatibus soluta voluptate repellat placeat neque, quis,
+                        perferendis consequuntur natus fugit quaerat.</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--finish">Finish</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Finish the course</h3>
+                    <p>Finish the course withing the next two months</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--finish">Finish</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Finish the course</h3>
+                    <p>Finish the course withing the next two months</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--finish">Finish</Button>
+                    </div>
+                </div> -->
+                <!-- <div class="project">
+                    <h3>Finish the course</h3>
+                    <p>Finish the course withing the next two months</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--finish">Finish</Button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="card card--finishedProjects">
+            <h2>Finished Projects</h2>
+            <div class="projects">
+                <div class="empty">No Projects to show.</div>
+                <!-- <div class="project">
+                    <h3>Book Hotel</h3>
+                    <p>GDSC conference takes place in December, dont forget to book a hotel</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Book Hotel</h3>
+                    <p>GDSC conference takes place in December, dont forget to book a hotel</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Book Hotel</h3>
+                    <p>GDSC conference takes place in December, dont forget to book a hotel</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="card card--pendingProjects">
+            <h2>Pending Projects</h2>
+            <div class="projects">
+                <div class="empty">No Projects to show.</div>
+                <!-- <div class="project">
+                    <h3>Hotel Management</h3>
+                    <p>GDSC want a software to automate bookings.</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--activate">Activate</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Hotel Management</h3>
+                    <p>GDSC want a software to automate bookings.</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--activate">Activate</Button>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Hotel Management</h3>
+                    <p>GDSC want a software to automate bookings.</p>
+                    <div class="actions">
+                        <Button class="btn btn--moreInfo">MoreInfo</Button>
+                        <Button class="btn btn--activate">Activate</Button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+
+    <div class="modal hidden">
+        <div class="info">
+            <div class="info-block">
+                <label for="name">Project Name</label>
+                <input id="name" type="text" placeholder="Enter Project Name" required>
+            </div>
+            <div class="info-block">
+                <label for="description">Project Description</label>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Click to write!"
+                    required></textarea>
+            </div>
+            <div class="info-block">
+                <label for="complexity">Project Complexity</label>
+                <div id="complexity" class="choices">
+                    <div class="choice choice--1">
+                        <label for="easy">Easy</label>
+                        <input type="radio" name="complexity" id="easy" value="Easy">
+                    </div>
+                    <div class="choice choice--2">
+                        <label for="medium">Medium</label>
+                        <input type="radio" name="complexity" id="medium" value="Medium">
+                    </div>
+                    <div class="choice choice--3">
+                        <label for="hard">Hard</label>
+                        <input type="radio" name="complexity" id="hard" value="Hard">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <Button type="submit" class="btn btn-submit">Submit</Button>
+    </div>
+</body>
+
+</html>
