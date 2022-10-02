@@ -63,11 +63,21 @@ class Project {
         </div>
         `
         const pEl = document.createElement('div')
+        pEl.draggable = PROJECT_TYPE.FINISHED == type ? false : true//finished project are not draggable
         pEl.className = 'project'
         pEl.dataset.id = this.pId
         pEl.insertAdjacentHTML('beforeEnd', innerHtmll)
         this.#addBtnListenersOn(pEl)
+        this.#connectDrag(pEl)
         return pEl
+    }
+    #connectDrag(pEl) {
+        // console.log(this);
+        pEl.addEventListener('dragstart', function (evnt) {
+            // console.log(this);//project
+            evnt.dataTransfer.setData('text/plain', this.dataset.id)
+            evnt.dataTransfer.effectAllowed = 'move'
+        })
     }
     #addBtnListenersOn(projectEl) {
         const btnActivate = projectEl.querySelector('.btn--activate')
@@ -144,6 +154,73 @@ class Manager {
         const backdrop = document.querySelector('.backdrop')
         backdrop.addEventListener('click', this.#toggleAddProjectModal.bind(this));
         ///
+
+        ////////drag
+        const aProjectsContainer = document.querySelector('.card--activeProjects .projects')
+        const pProjectsContainer = document.querySelector('.card--pendingProjects .projects')
+        const fProjectsContainer = document.querySelector('.card--finishedProjects .projects')
+
+        //active projects
+        aProjectsContainer.addEventListener('dragenter', (evnt) => {
+            evnt.preventDefault()
+            aProjectsContainer.classList.add('draggable')
+        })
+        aProjectsContainer.addEventListener('dragover', (evnt) => {
+            evnt.preventDefault()
+        })
+        aProjectsContainer.addEventListener('dragleave', (evnt) => {
+            evnt.preventDefault()
+            if (!evnt.relatedTarget.closest('.projects'))
+                aProjectsContainer.classList.remove('draggable')
+        })
+        aProjectsContainer.addEventListener('drop', (evnt) => {
+            const draggedProj = document.querySelector(`[data-id="${evnt.dataTransfer.getData('text/plain')}"]`)
+            const activebtn = draggedProj.querySelector('.btn--activate')
+            aProjectsContainer.classList.remove('draggable')
+            if (activebtn)//means active project is dragged here...else pending project is dragged
+                activebtn.click()
+        })
+
+
+        //finished projects
+        fProjectsContainer.addEventListener('dragenter', (evnt) => {
+            evnt.preventDefault()
+            fProjectsContainer.classList.add('draggable')
+        })
+        fProjectsContainer.addEventListener('dragover', (evnt) => {
+            evnt.preventDefault()
+        })
+        fProjectsContainer.addEventListener('dragleave', (evnt) => {
+            evnt.preventDefault()
+            if (!evnt.relatedTarget || !evnt.relatedTarget.closest('.projects'))
+                fProjectsContainer.classList.remove('draggable')
+        })
+        fProjectsContainer.addEventListener('drop', (evnt) => {
+            const draggedProj = document.querySelector(`[data-id="${evnt.dataTransfer.getData('text/plain')}"]`)
+            const finishbtn = draggedProj.querySelector('.btn--finish')
+            fProjectsContainer.classList.remove('draggable')
+            if (finishbtn)//means active project is dragged here...else pending project is dragged
+                finishbtn.click()
+        })
+        //pending project
+        pProjectsContainer.addEventListener('dragenter', (evnt) => {
+            evnt.preventDefault()
+            pProjectsContainer.classList.add('draggable')
+        })
+        pProjectsContainer.addEventListener('dragover', (evnt) => {
+            evnt.preventDefault()
+        })
+        pProjectsContainer.addEventListener('dragleave', (evnt) => {
+            evnt.preventDefault()
+            if (!evnt.relatedTarget.closest('.projects'))
+                pProjectsContainer.classList.remove('draggable')
+        })
+        pProjectsContainer.addEventListener('drop', (evnt) => {
+            const draggedProj = document.querySelector(`[data-id="${evnt.dataTransfer.getData('text/plain')}"]`)
+            pProjectsContainer.classList.remove('draggable')
+            //no drop alloweded here
+        })
+
     }
     static init() {
         defaultProjects.forEach((project) => {
@@ -190,9 +267,6 @@ class Manager {
     }
     addProject() {
         this.#toggleAddProjectModal()
-    }
-    #changeProjectStatus() {
-
     }
 }
 Manager.init()

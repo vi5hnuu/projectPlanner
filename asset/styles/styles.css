@@ -67,6 +67,9 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
+.draggable {
+  background-color: #9dd5fb;
+}
 .empty {
   font-size: 3.5rem;
   margin: auto;
