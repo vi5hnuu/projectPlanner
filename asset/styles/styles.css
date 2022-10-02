@@ -25,6 +25,7 @@ body {
 .header {
   display: flex;
   font-size: 3.5rem;
+  align-items: center;
   background-color: #b6e388;
   padding: 2.5rem;
   text-transform: uppercase;
@@ -173,8 +174,8 @@ h2 {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 80rem;
-  height: 50rem;
+  width: 50%;
+  height: 80%;
   transform: translateX(-50%) translateY(-50%);
   background-color: #76ba99;
   padding: 2rem;
@@ -238,6 +239,15 @@ textarea:focus {
 @media (max-width: 960px) {
   .card {
     width: 90%;
+  }
+  .modal {
+    width: 70%;
+    height: 60%;
+  }
+}
+@media (max-width: 650px) {
+  .header {
+    font-size: 1.5rem;
   }
 }
 /*  */
