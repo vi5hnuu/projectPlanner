@@ -207,6 +207,7 @@ textarea {
 }
 #description {
   flex-grow: 1;
+  height: 5rem;
   resize: none;
 }
 .info-block input:focus,
@@ -254,6 +255,15 @@ textarea:focus {
 @media (max-width: 650px) {
   .header {
     font-size: 1.5rem;
+  }
+}
+@media (max-height: 560px) {
+  .info-block label {
+    font-size: 1rem;
+  }
+  .info-block input,
+  textarea {
+    padding: 0.5rem 1.5rem;
   }
 }
 /*  */
